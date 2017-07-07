@@ -9,30 +9,38 @@ import java.util.Scanner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.beeva.spring.BancoSpringBeans.entity.Cliente;
+import com.beeva.spring.BancoSpringBeans.entity.Cuenta;
+import com.beeva.spring.BancoSpringBeans.factory.CuentaFactory;
+import com.beeva.spring.BancoSpringBeans.inter.CuentaDAO;
+import com.beeva.spring.BancoSpringBeans.jdbc.Conexion;
+import com.beeva.spring.BancoSpringBeans.store.Banco;
+
 
 
 public class App 
 {
     public static void main( String[] args )
     {
-    	
-    	ApplicationContext context = new ClassPathXmlApplicationContext("BancoBeans.xml");
-    	context.getBean("Banco");
-    	
     	/*
     	 * Beans SpringBeans
     	 * 
+    	ApplicationContext context = new ClassPathXmlApplicationContext("BancoBeans.xml");
+    	context.getBean("Banco");
+    	*/
+    	
     	ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml"); 
     	Banco banco =(Banco) context.getBean("Banco");
     	Cuenta cuenta=(Cuenta) context.getBean("Cuenta");
     	Cliente cliente =(Cliente) context.getBean("Cliente");
         CuentaFactory cuentaFactory = (CuentaFactory) context.getBean("Factory");
-    	
+        Conexion conexion =(Conexion) context.getBean("Con");
+    	conexion.Conexion("newbanco", "root", "Beeva2017*");
     	Scanner lectura = new Scanner(System.in);
 		double num,dinero;
 		String nombre,apellido;
 		int tipocuenta,id,opcion;
-
+		
 		//Ingresar usuarios
 
 				System.out.print("numero de usuarios a ingresar: ");
@@ -123,7 +131,6 @@ public class App
 					default:
 					    break;
 			    	}}
-    	*/
     	
     }
 }

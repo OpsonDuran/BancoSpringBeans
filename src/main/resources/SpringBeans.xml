@@ -8,6 +8,7 @@
 	<bean id="Cuenta" class="com.beeva.spring.BancoSpringBeans.entity.Cuenta" scope="prototype"/>
 	<bean id="Banco" class="com.beeva.spring.BancoSpringBeans.store.Banco" scope="prototype"/>
 	<bean id="Factory" class="com.beeva.spring.BancoSpringBeans.factory.CuentaFactory" scope="prototype"/>
+	<bean id="Con" class="com.beeva.spring.BancoSpringBeans.jdbc.Conexion" scope="prototype"/>
 
 	
 	
